@@ -3,6 +3,16 @@ package ru.nethology.domain;
 public class Radio {
     private int radioStationNumber;
     private int currentVolume;
+    private int numberOfRadioStations = 10;
+
+    public Radio(int numberOfRadioStations) {
+        this.numberOfRadioStations = numberOfRadioStations;
+    }
+
+    public Radio() {
+
+    }
+
 
     public int getRadioStationNumber() {
         return radioStationNumber;
@@ -12,7 +22,7 @@ public class Radio {
         if (radioStationNumber <= 0) {
             return;
         }
-        if (radioStationNumber > 9) {
+        if (radioStationNumber > numberOfRadioStations) {
             return;
         }
         this.radioStationNumber = radioStationNumber;
@@ -27,10 +37,10 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (radioStationNumber < 9) {
+        if (radioStationNumber < numberOfRadioStations) {
             radioStationNumber = radioStationNumber + 1;
         }
-        if (radioStationNumber == 9) {
+        if (radioStationNumber == numberOfRadioStations) {
             radioStationNumber = 0;
         }
     }
@@ -45,7 +55,7 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
     }
